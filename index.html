@@ -91,7 +91,7 @@
         <div class="container">
           <div class="row">
             <ul class="navigation">
-              <li><a href="./index.html">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="./about.html">About Us</a></li>
               <li><a href="./services.html">Our Services</a></li>
               <li><a href="./contact.html">Contact Us</a></li>
@@ -106,14 +106,14 @@
         id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel"
       >
-        <div class="nav_bar_toggle">
+        <div class="nav_bar_toggle d-flex flex-column align-items-start p-3">
           <ul>
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="./about.html">About Us</a></li>
             <li><a href="./services.html">Our Services</a></li>
             <li><a href="./contact.html">Contact Us</a></li>
           </ul>
-          <ul>
+          <ul class="">
             Mail Us at:
             <li>
               <a href="mailto:contact@boostupcleaningservices.au">contact@boostupcleaningservices.au</a>
@@ -196,7 +196,7 @@
           <div class="col-md-6 col-lg-4 col-sm-12">
             <a href="./services/bond.html">
               <div class="service-box">
-                <img src="images/icons/2.png" />
+                <img src="images/icons/bond-cleaning.png" />
                 <h3>Bond Cleaning</h3>
                 <p class="truncate-4-lines">
                   BOOSTUP CLEANING SERVICE provides comprehensive bond cleaning to ensure your property meets the
@@ -208,7 +208,7 @@
           <div class="col-md-6 col-lg-4 col-sm-12">
             <a href="./services/event.html">
               <div class="service-box">
-                <img src="images/icons/3.png" />
+                <img src="images/icons/event-cleaning.png" />
                 <h3>Event Cleaning</h3>
                 <p class="truncate-4-lines">
                   BOOSTUP CLEANING SERVICE offers comprehensive event cleaning services, ensuring your venue is
@@ -231,13 +231,13 @@
     <div class="estimate">
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8 col-lg-6 col-sm-12">
             <div class="estimate-left">
               <h2>Get started with your free estimate</h2>
               <p>Tell us about your home, and get a price with consultation</p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-lg-6 col-sm-12">
             <div class="estimate-right">
               <a href="./contact.html" class="btn">Get Free Estimate</a>
             </div>
@@ -304,17 +304,24 @@
         <div class="footer-bottom">
           <div class="row">
             <div class="col-md-10">
-              <div class="copyright">Copyright 2025. All Rights Reserved.</div>
+              <div class="copyright">Copyright <span class="year"></span>. All Rights Reserved.</div>
             </div>
 
             <div class="col-md-2">
-              <a href="#"><img src="images/coffee.png" /></a>
+              <a href="https://www.dipeshsiwakoti.com.np"><img src="images/coffee.png" /></a>
             </div>
           </div>
         </div>
       </div>
     </footer>
-    <script src="./js/slider.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        var currentYear = new Date().getFullYear();
+        $(".year").text(currentYear);
+      });
+    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

@@ -154,7 +154,7 @@ img {
     left: 0;
     width: 100%;
     height: 94px;
-    background-image: url(../images/texture.png);
+    background-image: url(../images/texture/texture.png);
     background-size: cover;
 }
 .abt-wrapper h2{
@@ -250,7 +250,6 @@ img {
     background: #F3CB5F;
     float: left;
     width: 100%;
-    height: 200px;
     font-family: Inter;
   position: relative;
   padding-top: 60px;
@@ -264,7 +263,7 @@ img {
     left: 0;
     width: 100%;
     height: 80px;
-    background-image: url(../images/texture.png);
+    background-image: url(../images/partials/texture.png);
     background-size: cover;
     z-index: 999;
     transform: rotate(180deg);
@@ -286,6 +285,15 @@ img {
 .estimate-right{
   float: right;
 }
+
+@media only screen and (max-width: 768px) {
+  .estimate-right {
+    float: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
 .estimate-right a.btn{
   color: #FFF;
   font-family: Nunito;

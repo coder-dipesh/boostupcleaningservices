@@ -16,13 +16,10 @@
     font-size: 32px;
   }
   .offcanvas{
-    width: 50% !important;
+    width: 75% !important;
+    padding: 0px 15px;
   }
   .nav_bar_toggle ul {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
    margin-top:18%;
   }
 
@@ -30,7 +27,6 @@
 .nav_bar_toggle ul li a{
     color: #1E7E51;
     text-decoration: none;
-    margin: 20px;
 }
   .top-contact{
     display: none;
