@@ -128,14 +128,18 @@
           <div class="col-md-8">
             <div class="form_section">
               <h3>Get In Touch</h3>
-              <form action="#" method="post">
+              <form id="my-form" action="https://formspree.io/f/xanevlwz" method="POST">
                 <span>Full name *</span>
-                <input type="text" name="" />
+                <input type="text" required name="fullname" />
                 <span>Email *</span>
-                <input type="email" name="" />
+                <input type="email" required name="email" />
                 <span>Your query *</span>
-                <textarea type="text" placeholder="" rows="5" name=""></textarea>
-                <input type="submit" id="submit" value="Submit" />
+                <textarea type="text" required rows="5" name="yourquery"></textarea>
+                <button type="submit" id="form-button" class="d-flex gap-2 align-items-center submit">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  Send
+                </button>
+                <p id="form-status" class="p-2"></p>
               </form>
             </div>
           </div>
@@ -262,6 +266,49 @@
       </div>
     </footer>
 
+    <!-- Form -->
+
+    <script>
+      var form = document.getElementById("my-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.classList.add("text-success");
+              status.innerHTML = "Than you! We've received your message! We'll get back to you soon.";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"].map((error) => error["message"]).join(", ");
+                  status.classList.add("text-danger");
+                } else {
+                  status.classList.add("text-danger");
+                  status.innerHTML = "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.classList.add("text-danger");
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+
+    <!-- Form End -->
+
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/skdslider.min.js"></script>
     <script type="text/javascript">
@@ -288,13 +335,5 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
-    <script src="js/multislider.js"></script>
-    <script>
-      $("#mixedSlider").multislider({
-        duration: 750,
-        interval: 3000,
-      });
-    </script>
   </body>
 </html>
